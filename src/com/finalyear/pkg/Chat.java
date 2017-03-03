@@ -35,7 +35,7 @@ public class Chat extends HttpServlet {
             System.out.println(string2);
             String string3 = "select *from chatting where username='" + string + "' AND password='" + string2 + "'";
             ResultSet resultSet = statement.executeQuery(string3);
-           // int resultSet = statement.executeUpdate(string3);
+           /// int resultSet = statement.executeUpdate(string3);
             if (resultSet.next()) {
                 String string4 = resultSet.getString("username");
                 HttpSession httpSession = httpServletRequest.getSession();

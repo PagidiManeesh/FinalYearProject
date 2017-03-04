@@ -1,10 +1,13 @@
+/* this file takes input from the user only Integers and encrypts the given Integer  using RSA this does not work with complex numbers
+ * consider RSAText for best output*/
 package com.ecryption.pkg;
 
 import java.util.*;
 import java.math.*;
 class RSA //Defining the Class as RSA
 {
- static double primefactphi(int n)
+ static double primefactphi(int n)/*Here the public key is generated and within the specified conditions:choose e, coprime to and less
+  than PhiN ,,1 < e < ϕ(n),gcd(e,ϕ(n))=1, e is Public Key*/
     {
         HashMap<Integer,Integer> m = new HashMap<>();
 

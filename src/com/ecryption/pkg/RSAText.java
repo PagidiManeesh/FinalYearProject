@@ -1,3 +1,4 @@
+/* This file takes the input from the user With the specified key size encrypts user defined string using RSA algoritm*/
 package com.ecryption.pkg;
 /**
  *@authour Maneesh
@@ -7,12 +8,21 @@ public class RSAText {
 
 }*/
 import java.io.BufferedReader;
-
+/*Reads text from a character-input stream, buffering characters so as
+ to provide for the efficient reading of characters, arrays, and lines. */
 import java.io.InputStreamReader;
+/*An InputStreamReader is a bridge from byte streams to character streams:
+ It reads bytes and decodes them into characters using a specified charset. The charset that it uses may be 
+ specified by name or may be given explicitly, or the platform's default charset may be accepted. */
 import java.math.BigInteger;
+/*Immutable arbitrary-precision integers. All operations behave as if BigIntegers were represented in 
+two's-complement notation (like Java's primitive integer types). BigInteger provides analogues to all of Java's primitive integer 
+operators, and all relevant methods from java.lang.Math. Additionally, BigInteger provides operations for modular arithmetic, GCD
+ calculation, primality testing, prime generation, bit manipulation, and a few other miscellaneous operations. */
 import java.util.*;
 
-public class RSAText {
+public class RSAText //Defining class 
+{
     private int BitSize;
     private BigInteger PrimeP,PrimeQ,PhiN,PrivateKey;
     private BigInteger ModN,PublicKey;
@@ -89,7 +99,7 @@ public class RSAText {
             if(sHexString.length()==0 || sHexString == null)
                 return null;
             int iMaxCharLenInOneStr = BitSize/2;
-            if (iMaxCharLenInOneStr <= sHexString.length())
+            if (iMaxCharLenInOneStr <= sHexString.length())/*Returns the length of this string. The length is equal to the number of Unicode code units in the string.*/
             {
                 String sRetOutStr = "";//return string
                 String sOutStr = null;// local string
@@ -111,6 +121,8 @@ public class RSAText {
                     else
                     {
                         sOutStr = (new BigInteger(sHexString.substring(iBeginIndex), 16)).modPow(e, N).toString(16);
+                        /*BigInteger(str, radix):  Translates the String representation of a BigInteger in the specified radix into a BigInteger. The String representation consists of optional
+                       minus or plus sign followed by a sequence of one or more digits in the specified radix.*/
                         iBeginIndex = sHexString.length();
                     }
                     if(sOutStr.length() < iMaxCharLenInOneStr)
@@ -142,7 +154,11 @@ public class RSAText {
                 {
                     if (iEndIndex < sHexString.length())
                     {
-                        sRetOutStr += (new BigInteger(sHexString.substring(iBeginIndex, iEndIndex), 16)).modPow(d, N).toString(16);
+                        sRetOutStr += (new BigInteger(sHexString.substring(iBeginIndex, iEndIndex), 16)).modPow(d, N).toString(16);/*
+                         ***BigInteger(str, radix):  Translates the String representation of a BigInteger in the specified radix into a BigInteger. The String representation consists of optional
+                        minus or plus sign followed by a sequence of one or more digits in the specified radix. The character-
+                        to-digit mapping is provided by Character.digit. The String may not contain any extraneous characters (whitespace, for example).
+                       ***substring(s,e) retuns substring starting from s to e*/
                         iBeginIndex = iEndIndex;
                         iEndIndex += iMaxCharLenInOneStr;
                     }
@@ -157,12 +173,12 @@ public class RSAText {
             else
                 return (new BigInteger(sHexString, 16)).modPow(d, N).toString(16);
         }
-        public String convertStringToHex(String str)
+        public String convertStringToHex(String str)//convert input plain text to hex string
         {
             char[] chars = str.toCharArray();
-            StringBuilder hex = new StringBuilder();
+            StringBuilder hex = new StringBuilder();//Constructs a string builder with no characters in it and an initial capacity of 16 characters.
             for(int i = 0; i < chars.length; i++){
-                hex.append(Integer.toHexString((int)chars[i]));
+                hex.append(Integer.toHexString((int)chars[i]));//Appends the specified string to this character sequence
             }
             return hex.toString();
         }
@@ -193,14 +209,14 @@ public class RSAText {
         System.out.println("\n");	
         try
         {
-        	long start1 = System.currentTimeMillis();
+        	long start1 = System.currentTimeMillis();//Returns the current time in milliseconds
             RSAText r = new RSAText(UbitSize);
             long time1 = System.currentTimeMillis() - start1;
             System.out.println("Total Key Generation time is  "+time1+"  milliSeconds");
             System.out.println("Note: The message M must be smaller than the modulus N");
             System.out.println("Enter message: ");
             System.out.println();
-            String input = (new BufferedReader(new InputStreamReader(System.in))).readLine();
+            String input = (new BufferedReader(new InputStreamReader(System.in))).readLine();//Reads a line of text
             long start = System.currentTimeMillis();
             String sHexCipherText = r.encryptPlainStrToHex(input);
             String sPlainText = r.decryptHexCipherToPlainMsg(sHexCipherText);

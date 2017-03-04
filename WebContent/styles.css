@@ -1,6 +1,11 @@
+/*
+*Styling page for attributes defined in the .JSP Page
+*/
+
 @CHARSET "ISO-8859-1";
 
-div.middle {
+div.middle 
+{
   position: absolute;
   width: 60%;
   height: 20%;

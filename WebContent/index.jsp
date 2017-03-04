@@ -1,3 +1,4 @@
+<!--  /*This is the welcome page which consists Username and Password text boxes*/-->
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -8,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
  <script type="text/javascript" src="check.js"></script>
 <title>Chatting Room</title>
-<link rel="shortcut icon" href="icon.jpg">
+<link rel="shortcut icon" href="icon.jpg"><!-- Icon on webpage -->
 </head>
 <body>
 <h1 align="center"><font color="#2c3e50">Welcome to My WebSite !</font></h1>
@@ -28,7 +29,7 @@
                 </tr>
                 <tr>
                     <td><input type="button" value="Go" class="circle" onclick="startchating();"></td>
-                    <td><div id="loading-icon"></div></td>
+                    <td><div id="loading-icon"></div></td>                               <!-- By submitting startchatting() is invoked  -->
                 </tr>
             </table>
             </form>            

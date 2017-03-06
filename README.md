@@ -6,8 +6,9 @@ NAME:Secure Chatting Application
 Project Co-ordinator: Mr. Sudeep Varshney
 
 
-          A web Based Application Where the end users can send messages each other.Each message is encrypted with RSA With the 
-user defined BITSIZE of specific key.
+     A web Based Application Where the end users can send messages each other.Each message 
+     is encrypted with RSA With the user defined BITSIZE of specific key.   
+
           
 All other information updated along with the project
           
